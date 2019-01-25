@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PivotTable.js</title>
+
+        <!-- external libs from cdnjs -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/pivot.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/pivot.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/d3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/c3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/export_renderers.min.js"></script>
+
+        <style>
+            body {font-family: Verdana;}
+            .node {
+              border: solid 1px white;
+              font: 10px sans-serif;
+              line-height: 12px;
+              overflow: hidden;
+              position: absolute;
+              text-indent: 2px;
+            }
+            .c3-line, .c3-focused {stroke-width: 3px !important;}
+            .c3-bar {stroke: white !important; stroke-width: 1;}
+            .c3 text { font-size: 12px; color: grey;}
+            .tick line {stroke: white;}
+            .c3-axis path {stroke: grey;}
+            .c3-circle { opacity: 1 !important; }
+            .c3-xgrid-focus {visibility: hidden !important;}
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(function(){
+                if(window.location != window.parent.location)
+                    $("<a>", {target:"_blank", href:""})
+                        .text("[pop out]").prependTo($("body"));
+
+                $("#output").pivotUI(
+                    $.csv.toArrays($("#output").text()),
+                    $.extend({
+                        renderers: $.extend(
+                            $.pivotUtilities.renderers,
+                            $.pivotUtilities.c3_renderers,
+                            $.pivotUtilities.d3_renderers,
+                            $.pivotUtilities.export_renderers
+                            ),
+                        hiddenAttributes: [""]
+                    }, {})
+                ).show();
+             });
+        </script>
+        <div id="output" style="display: none;">,job groups (main char.),period (main char.)
+0,cultic personnel,"NK, Dyn 19"
+1,cultic personnel,"NK, Dyn 18"
+2,cultic personnel,"NK, Dyn 18"
+3,cultic personnel,"NK, Dyn 18"
+4,service and supply,"NK, Dyn 18"
+5,service and supply,"NK, Dyn 19"
+6,science and scholarship,"NK, Dyn 18-19"
+7,administration,"NK, Dyn 18"
+8,administration,"NK, Dyn 18-19"
+9,service and supply,"NK, Dyn 19"
+10,cultic personnel,"NK, Dyn 19"
+11,cultic personnel,"NK, Dyn 18"
+12,cultic personnel,"NK, Dyn 18"
+13,cultic personnel,"NK, Dyn 18"
+14,cultic personnel,"NK, Dyn 18"
+15,cultic personnel,"NK, Dyn 18"
+16,administration,"NK, Dyn 18"
+17,administration,"NK, Dyn 18"
+18,administration,"NK, Dyn 18"
+19,administration,"NK, Dyn 18"
+20,administration,"NK, Dyn 18"
+21,service and supply,"NK, Dyn 18"
+22,service and supply,"NK, Dyn 19"
+23,administration,"NK, Dyn 18"
+24,administration,"NK, Dyn 18"
+25,administration,"NK, Dyn 18"
+26,science and scholarship,"NK, Dyn 19"
+27,service and supply,"NK, Dyn 18"
+28,military,"NK, Dyn 20"
+29,service and supply,"NK, Dyn 19"
+30,service and supply,"NK, Dyn 18"
+31,cultic personnel,"NK, Dyn 19"
+32,cultic personnel,"NK, Dyn 18"
+33,cultic personnel,"NK, Dyn 18-19"
+34,cultic personnel,"NK, Dyn 19"
+35,service and supply,"NK, Dyn 18"
+36,administration,"NK, Dyn 18"
+37,administration,"NK, Dyn 18"
+38,administration,"NK, Dyn 18"
+39,administration,"NK, Dyn 18"
+40,administration,"NK, Dyn 18"
+41,administration,"NK, Dyn 18"
+42,administration,"NK, Dyn 19"
+43,administration,"NK, Dyn 19"
+44,administration,"NK, Dyn 18"
+45,administration,"NK, Dyn 18"
+46,administration,"NK, Dyn 18"
+47,administration,"NK, Dyn 18"
+48,service and supply,"NK, Dyn 18"
+49,administration,"NK, Dyn 18"
+50,administration,"NK, Dyn 18"
+51,military,"NK, Dyn 20"
+52,military,"NK, Dyn 18"
+53,cultic personnel,"NK, Dyn 18"
+54,cultic personnel,"NK, Dyn 18-19"
+55,cultic personnel,"NK, Dyn 18"
+56,administration,"NK, Dyn 19"
+57,service and supply,"NK, Dyn 18"
+58,administration,"NK, Dyn 18-19"
+59,cultic personnel,"NK, Dyn 19"
+60,cultic personnel,"NK, Dyn 19"
+61,cultic personnel,"NK, Dyn 18"
+62,cultic personnel,"NK, Dyn 19"
+63,administration,"NK, Dyn 18"
+64,administration,"NK, Dyn 18"
+65,administration,"NK, Dyn 18"
+66,cultic personnel,"NK, Dyn 18"
+67,administration,"NK, Dyn 18"
+68,cultic personnel,"NK, Dyn 18"
+69,administration,"NK, Dyn 18"
+70,cultic personnel,"NK, Dyn 19"
+71,cultic personnel,"NK, Dyn 19"
+72,administration,"NK, Dyn 18"
+73,military,"NK, Dyn 18"
+74,service and supply,"NK, Dyn 19"
+75,service and supply,"NK, Dyn 19"
+</div>
+    </body>
+</html>

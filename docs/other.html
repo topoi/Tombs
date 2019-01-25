@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PivotTable.js</title>
+
+        <!-- external libs from cdnjs -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/pivot.min.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/pivot.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/d3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/c3_renderers.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.19.0/export_renderers.min.js"></script>
+
+        <style>
+            body {font-family: Verdana;}
+            .node {
+              border: solid 1px white;
+              font: 10px sans-serif;
+              line-height: 12px;
+              overflow: hidden;
+              position: absolute;
+              text-indent: 2px;
+            }
+            .c3-line, .c3-focused {stroke-width: 3px !important;}
+            .c3-bar {stroke: white !important; stroke-width: 1;}
+            .c3 text { font-size: 12px; color: grey;}
+            .tick line {stroke: white;}
+            .c3-axis path {stroke: grey;}
+            .c3-circle { opacity: 1 !important; }
+            .c3-xgrid-focus {visibility: hidden !important;}
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(function(){
+                if(window.location != window.parent.location)
+                    $("<a>", {target:"_blank", href:""})
+                        .text("[pop out]").prependTo($("body"));
+
+                $("#output").pivotUI(
+                    $.csv.toArrays($("#output").text()),
+                    $.extend({
+                        renderers: $.extend(
+                            $.pivotUtilities.renderers,
+                            $.pivotUtilities.c3_renderers,
+                            $.pivotUtilities.d3_renderers,
+                            $.pivotUtilities.export_renderers
+                            ),
+                        hiddenAttributes: [""]
+                    }, {})
+                ).show();
+             });
+        </script>
+        <div id="output" style="display: none;">,job groups (other char.),period (other char.)
+0,cultic personnel,"NK, Dyn 18"
+1,cultic personnel,"NK, Dyn 19"
+2,cultic personnel,"NK, Dyn 19"
+3,military,"NK, Dyn 20"
+4,military,"NK, Dyn 19-20"
+5,service and supply,"NK, Dyn 19"
+6,service and supply,"NK, Dyn 19"
+7,military,"NK, Dyn 19"
+8,administration,"NK, Dyn 19"
+9,administration,"NK, Dyn 19"
+10,administration,"NK, Dyn 19"
+11,administration,"NK, Dyn 18"
+12,administration,"NK, Dyn 18"
+13,military,"NK, Dyn 18"
+14,cultic personnel,"NK, Dyn 19"
+15,royal court society,"NK, Dyn 19"
+16,service and supply,"NK, Dyn 18"
+17,service and supply,"NK, Dyn 19"
+18,service and supply,"NK, Dyn 19"
+19,military,"NK, Dyn 19"
+20,royal court society,"NK, Dyn 18"
+21,military,"NK, Dyn 20"
+22,Not defined,"NK, Dyn 18"
+23,administration,"NK, Dyn 19"
+24,administration,"NK, Dyn 19"
+25,administration,"NK, Dyn 19"
+26,administration,"NK, Dyn 19"
+27,administration,"NK, Dyn 19"
+28,administration,"NK, Dyn 19"
+29,administration,"NK, Dyn 19"
+30,administration,"NK, Dyn 19"
+31,administration,"NK, Dyn 19"
+32,administration,"NK, Dyn 19"
+33,administration,"NK, Dyn 19"
+34,royal court society,"NK, Dyn 19"
+35,administration,"NK, Dyn 18"
+36,administration,"NK, Dyn 19"
+37,administration,"NK, Dyn 19"
+38,administration,"NK, Dyn 19"
+39,administration,"NK, Dyn 19"
+40,administration,"NK, Dyn 19"
+41,administration,"NK, Dyn 19"
+42,administration,"NK, Dyn 19"
+43,administration,"NK, Dyn 19"
+44,service and supply,"NK, Dyn 19"
+45,administration,"NK, Dyn 19"
+46,administration,"NK, Dyn 19"
+47,military,"NK, Dyn 19"
+48,administration,"NK, Dyn 18"
+49,military,"NK, Dyn 19"
+50,administration,"NK, Dyn 19"
+51,military,"NK, Dyn 19-20"
+52,military,"NK, Dyn 19"
+53,royal court society,"NK, Dyn 18"
+54,royal court society,"NK, Dyn 18"
+55,royal court society,"NK, Dyn 18"
+56,service and supply,"NK, Dyn 18"
+57,service and supply,"NK, Dyn 18"
+58,Not defined,"NK, Dyn 18"
+59,service and supply,NK
+60,royal court society,"NK, Dyn 18"
+61,royal court society,"NK, Dyn 18"
+62,royal court society,"NK, Dyn 18"
+63,cultic personnel,"NK, Dyn 19"
+64,cultic personnel,"NK, Dyn 19"
+65,royal court society,"NK, Dyn 19"
+66,cultic personnel,"NK, Dyn 19"
+67,military,"NK, Dyn 20"
+68,administration,"NK, Dyn 19"
+69,administration,"NK, Dyn 19"
+70,administration,"NK, Dyn 19"
+71,administration,"NK, Dyn 18"
+72,administration,"NK, Dyn 19"
+73,royal court society,"NK, Dyn 19"
+74,administration,"NK, Dyn 18"
+75,administration,"NK, Dyn 19"
+76,administration,"NK, Dyn 19"
+77,administration,"NK, Dyn 19"
+78,administration,"NK, Dyn 19"
+79,administration,"NK, Dyn 18"
+80,administration,"NK, Dyn 19"
+81,military,"NK, Dyn 18"
+82,military,"NK, Dyn 19"
+83,administration,"NK, Dyn 19"
+84,cultic personnel,"NK, Dyn 19"
+85,administration,"NK, Dyn 19"
+86,administration,"NK, Dyn 19"
+87,cultic personnel,"NK, Dyn 18"
+88,cultic personnel,"NK, Dyn 19"
+89,Not defined,"NK, Dyn 20"
+90,royal court society,"NK, Dyn 19"
+91,administration,"NK, Dyn 19"
+92,administration,"NK, Dyn 19"
+93,cultic personnel,"NK, Dyn 19"
+94,administration,"NK, Dyn 19"
+95,royal court society,"NK, Dyn 20"
+96,administration,"NK, Dyn 18"
+97,royal court society,"NK, Dyn 18"
+98,royal court society,"NK, Dyn 18"
+99,administration,"NK, Dyn 18"
+100,administration,"NK, Dyn 18"
+101,administration,"NK, Dyn 18"
+102,administration,"NK, Dyn 18"
+103,administration,"NK, Dyn 19"
+104,military,"NK, Dyn 19"
+105,administration,"NK, Dyn 19"
+106,administration,"NK, Dyn 19"
+107,administration,"NK, Dyn 19"
+108,military,"NK, Dyn 18"
+109,administration,"NK, Dyn 19"
+110,administration,"NK, Dyn 19"
+111,cultic personnel,"NK, Dyn 19"
+112,administration,"NK, Dyn 19"
+113,military,"NK, Dyn 19"
+114,service and supply,"NK, Dyn 19"
+115,administration,"NK, Dyn 18"
+116,administration,"NK, Dyn 18"
+117,royal court society,"NK, Dyn 19"
+118,cultic personnel,"NK, Dyn 19"
+119,administration,"NK, Dyn 19"
+120,administration,"NK, Dyn 19"
+121,administration,"NK, Dyn 19"
+122,administration,"NK, Dyn 19"
+123,military,"NK, Dyn 19"
+124,military,"NK, Dyn 19"
+125,science and scholarship,"NK, Dyn 19"
+</div>
+    </body>
+</html>
